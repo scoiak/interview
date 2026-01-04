@@ -1,4 +1,25 @@
-# Myapp
+# DummyJSON - Product Listing App
+
+This project was built as part of a selection process, in the technical challenge stage. Basically, it consists of using the [DummyJson](https://dummyjson.com/) API to select categories and list products related to the selected category.
+
+List of features implemented in this project:
+- Listing of items from a specified category;
+- Control to select the desired category;
+- Pagination control for organizing results;
+- Search control to choose the desired product;
+- Detail view of desired product as a modal;
+
+Here are some images of the application in operation:
+
+<img width="946" height="482" alt="image" src="https://github.com/user-attachments/assets/7e10ef6f-a85a-491c-8fbd-dfa24491c53f" />
+
+<img width="946" height="481" alt="image" src="https://github.com/user-attachments/assets/4017f9fb-2027-4770-8afb-0809b5dfe736" />
+
+<img width="946" height="320" alt="image" src="https://github.com/user-attachments/assets/c7c3cdbe-42e0-4518-b012-13994fc3eaf8" />
+
+<img width="946" height="678" alt="image" src="https://github.com/user-attachments/assets/7422880e-382c-4d69-8ba2-9567032ddf7e" />
+
+--- 
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.2.
 
