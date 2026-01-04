@@ -1,0 +1,36 @@
+<div class="container">
+
+  <header class="header">
+    <h1 class="title">Modern Product Catalog</h1>
+    <p class="subtitle">Exploring the latest products with Angular</p>
+  </header>
+
+  <main>
+
+    @if (productService.error$()) {
+      <div class="error-message">
+        {{ productService.error$() }}
+      </div>
+    }
+
+    <app-controls
+      (categoryChange)="onCategoryChange($event)"
+      (pageChange)="onPageChange($event)"
+      (searchChange)="onSearchChange($event)">
+    </app-controls>
+
+    <app-product-table
+      [products]="productService.products()"
+      (productSelect)="onProductSelect($event)">
+    </app-product-table>
+
+    @if (selectedProduct()) {
+      <app-product-modal
+        [product]="selectedProduct()!"
+        (close)="onCloseModal()">
+      </app-product-modal>
+    }
+
+  </main>
+
+</div>

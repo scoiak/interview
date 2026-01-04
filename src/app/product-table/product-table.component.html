@@ -1,0 +1,30 @@
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Category</th>
+        <th>Tags</th>
+        <th>Stock</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (product of products(); track product.id) {
+        <tr (click)="onProductClick(product)" tabindex="0" (keydown.enter)="onProductClick(product)">
+          <td data-label="Title">{{ product.title }}</td>
+          <td data-label="Category">{{ product.category | titlecase }}</td>
+          <td data-label="Tags">
+            <div class="tags-container">
+              @for(tag of product.tags; track tag) {
+                <span class="tag">{{ tag }}</span>
+              }
+            </div>
+          </td>
+          <td data-label="Stock">{{ product.stock }}</td>
+          <td data-label="Price">{{ product.price | currency }}</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,26 @@
+<div class="modal-container" (click)="onCloseModal()" (keydown.escape)="onCloseModal()" role="dialog" aria-modal="true" [attr.aria-labelledby]="'product-modal-title'">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <h2 id="product-modal-title">{{ product().title }}</h2>
+      <button #closeButton class="close" (click)="onCloseModal()" aria-label="Close product details modal">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="product-gallery">
+        @for(image of product().images; track image; let index = $index) {
+          <img [src]="image" [alt]="product().title + ' - image ' + (index + 1)" loading="lazy">
+        }
+      </div>
+      <p class="product-description">{{ product().description }}</p>
+      <div class="product-details-grid">
+        <p><b>Price:</b> {{ product().price | currency }}</p>
+        <p><b>Stock:</b> {{ product().stock }}</p>
+        <p><b>Brand:</b> {{ product().brand }}</p>
+        <p><b>SKU:</b> {{ product().sku }}</p>
+        <p><b>Weight:</b> {{ product().weight }}g</p>
+        <p><b>Warranty:</b> {{ product().warrantyInformation }}</p>
+        <p><b>Shipping:</b> {{ product().shippingInformation }}</p>
+      </div>
+
+    </div>
+  </div>
+</div>

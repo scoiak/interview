@@ -1,0 +1,39 @@
+<div class="controls">
+  <div class="search-container">
+    <input
+      type="search"
+      placeholder="Search products..."
+      [value]="productService.search()"
+      (input)="onSearchChange($event)"
+      aria-label="Search products"
+    />
+  </div>
+
+  <div class="filter-container">
+    <label for="category-select">Category:</label>
+    <select id="category-select" #select (change)="onCategoryChange(select.value)">
+      <option value="">All Categories</option>
+      @for (category of productService.categories(); track category.slug) {
+        <option [value]="category.slug" [selected]="productService.selectedCategory() === category.slug">
+          {{ category.name }}
+        </option>
+      }
+    </select>
+  </div>
+
+  <div class="pagination">
+    <button
+      (click)="onPageChange(productService.currentPage() - 1)"
+      [disabled]="productService.currentPage() === 1"
+      aria-label="Go to previous page">
+      &larr;
+    </button>
+    <span>Page {{ productService.currentPage() }} of {{ productService.totalPages() }}</span>
+    <button
+      (click)="onPageChange(productService.currentPage() + 1)"
+      [disabled]="productService.currentPage() === productService.totalPages()"
+      aria-label="Go to next page">
+      &rarr;
+    </button>
+  </div>
+</div>
